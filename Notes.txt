@@ -1,0 +1,40 @@
+Create the package.json file npm(Node Package Manager)
+
+	> npm init -y
+
+Install Express Js Packages
+
+	> npm i express 
+
+Nodemon is a tool that helps develop Node.js based applications by automatically restarting the node application 
+when file changes in the directory are detected.
+	
+	> npm i nodemon                  OR      >npm install -g nodemon
+	> nodemon {File_name}.js 
+
+Action: Action is description of what you want to do
+Dispatch:Dispatch is the function that carries out that action
+
+Controller: Controller is refers to a part of your code that is responsible to handle the application logic.
+Controller are typically used to process incomming request and interact with models and send response to the clients.
+
+Get : Read data
+Post: Insert data
+Put or Patch: Update data or insert if new id
+Delete: Delete data
+
+
+Middleware:  app.use(express.json());
+It's importance to place this before any route that need to handal json data in the request body. The middleware is responsible for parsing JSON data from requests. 
+
+
+
+Mongodb 
+
+Checking the Version
+	> mongod --version
+	
+	> mongosh
+
+Installing Mongodb
+	> npm i mongoose
