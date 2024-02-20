@@ -60,7 +60,7 @@ const login = async(req,res) => {
         }
 
         // comapare the password 
-        const user = await bcrypt.compare(password, userExist.password);
+        const user = await userExist.comparePassword(password);
 
         if(user)
         {
@@ -75,9 +75,12 @@ const login = async(req,res) => {
         }
 
     } catch (error) {
+        console.log(error);
         res.status(400).json({ msg:"Internal Server Error" });
     }
-    
+
 }
+
+
 
 module.exports = {home, register, login};

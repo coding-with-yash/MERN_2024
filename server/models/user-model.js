@@ -1,5 +1,8 @@
 const mongoose = require("mongoose");
 const jwt = require("jsonwebtoken");
+const bcrypt = require("bcryptjs");
+// const { compare } = require("bcryptjs");
+
 
 const userSchema = new mongoose.Schema({
   
@@ -25,6 +28,13 @@ const userSchema = new mongoose.Schema({
     },
 
 });
+
+// Comapre the login password
+userSchema.methods.comparePassword = async function(password) {
+    
+    return bcrypt.compare(password, this.password);
+
+};
 
 
 userSchema.methods.generateToken = async function() {
