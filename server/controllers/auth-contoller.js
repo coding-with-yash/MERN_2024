@@ -1,4 +1,6 @@
 const User = require("../models/user-model");
+const bcrypt = require("bcryptjs");
+ 
 
 const home = async(req,res)=>{
     try {  
@@ -26,13 +28,56 @@ const register = async(req,res) =>{
             return res.status(400).json({ msg: "Email already exits" });
         }
 
-        const userCreated = await User.create({ username, email, phone, password });
+        //hash the password 
+        const saltRound = 10;
+        const hash_password = await bcrypt.hash(password, saltRound);
 
-        res.status(200).json({ msg: userCreated });
+        // Create user
+        const userCreated = await User.create({ username, email, phone, password:hash_password });
 
+        // JWT Token 
+        res.status(201).json({  msg: "Register Successful",    
+                                token: await userCreated.generateToken(), 
+                                userId: userCreated._id.toString(), 
+                            });
     } catch (error) {
         res.status(500).json("Internal Server Error");
     }
 }
 
-module.exports = {home,register};
+
+const login = async(req,res) => {
+    try {
+        const {email, password} = req.body;
+
+        const userExist = await User.findOne({ email });
+        
+        console.log(userExist);
+
+        if(!userExist)
+        {
+            return res.status(400).json({ msg:"User not exits" });
+        }
+
+        // comapare the password 
+        const user = await bcrypt.compare(password, userExist.password);
+
+        if(user)
+        {
+            res.status(200).json({
+                msg: "Login Successful",
+                token: await userExist.generateToken(),
+                userId: userExist._id.toString(),
+            });
+        }
+        else{ 
+            res.status(401).json({ msg: "Invalid Login Credentials"})
+        }
+
+    } catch (error) {
+        res.status(400).json({ msg:"Internal Server Error" });
+    }
+    
+}
+
+module.exports = {home, register, login};

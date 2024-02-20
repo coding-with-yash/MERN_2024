@@ -38,3 +38,21 @@ Checking the Version
 
 Installing Mongodb
 	> npm i mongoose
+
+Password Encrypt
+	> npm i bcryptjs
+
+JWT (JSON Web Token):
+	SelfContained way for securely transmitting information between parties as JSON Object.
+	JWT is used for Authentication and Authorization in web application.
+	Autherization: Veriflying the user or client.
+	Authorization: Determining what action user or client is allowed to performed. 
+
+	Component of JWT =>	1)Header, 2)Payload, 3)Signature
+
+	install  > npm i jsonwebtoken
+
+json web Token
+	Token such as JWT's are typically not stored in the database along with other user details. 
+	Instead they are issued by the server during the Authentication process and the stored on the client-side 
+	(Cookies or local storage) for later uses.
