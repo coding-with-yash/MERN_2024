@@ -56,3 +56,5 @@ json web Token
 	Token such as JWT's are typically not stored in the database along with other user details. 
 	Instead they are issued by the server during the Authentication process and the stored on the client-side 
 	(Cookies or local storage) for later uses.
+
+ZOD Validation
