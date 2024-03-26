@@ -25,7 +25,8 @@ Delete: Delete data
 
 
 Middleware:  app.use(express.json());
-It's importance to place this before any route that need to handal json data in the request body. The middleware is responsible for parsing JSON data from requests. 
+It's importance to place this before any route that need to handal json data in the request body.
+The middleware is responsible for parsing JSON data from requests. 
 
 
 
@@ -58,3 +59,8 @@ json web Token
 	(Cookies or local storage) for later uses.
 
 ZOD Validation
+
+
+Step to Create Complete Contact Form 
+
+	Step 1: Create Model Schema Design File

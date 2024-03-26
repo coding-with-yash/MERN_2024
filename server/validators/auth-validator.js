@@ -29,4 +29,5 @@ const signupSchema = z.object({
 
 });
 
+
 module.exports = signupSchema;
