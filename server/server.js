@@ -11,11 +11,17 @@ const errorMiddleware = require("./middlewares/error-middleware");
 const ContactForm = require("./controllers/contact-controller");
 
 
+
+
 app.use(express.json());                // Middleware to handale json data 
 
 app.use("/api/auth", authRouter);
 
 app.use("/api/form", contactRouter);
+
+
+
+
 
 app.use(errorMiddleware);
 
