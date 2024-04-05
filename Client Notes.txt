@@ -1,0 +1,16 @@
+Installition of React 
+
+    > npm create vite@latest
+
+            project name : client
+
+            select framework : React 
+
+            Select a variant:  JavaScript
+
+           > cd client
+           > npm install
+           > npm run dev
+
+    >  npm i react-router-dom
+    Basically hite the URL of any page  
